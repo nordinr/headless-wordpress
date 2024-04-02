@@ -1,6 +1,7 @@
 version: '2'
 services:
   wordpress:
+    platform: linux/amd64
     build:
       context: .
       dockerfile: docker/Dockerfile.wordpress
@@ -16,6 +17,7 @@ services:
       DB_PASS: root # must match below
       WP_DEBUG: 'true'
   db:
+    platform: linux/amd64
     image: mysql:5.7
     ports:
       - 3306:3306
