@@ -81,11 +81,11 @@ fi
 
 # Setup database
 # --------------
-# printf "=> Create database '%s'... " "$DB_NAME"
-# if [ ! "$(wp core is-installed --allow-root >/dev/null 2>&1 && echo $?)" ]; then
-#   sudo -u www-data wp db create >/dev/null 2>&1 || \
-#     ERROR $LINENO "Database creation failed"
-#   printf "Done!\n"
+printf "=> Create database '%s'... " "$DB_NAME"
+if [ ! "$(wp core is-installed --allow-root >/dev/null 2>&1 && echo $?)" ]; then
+  sudo -u www-data wp db create >/dev/null 2>&1 || \
+    ERROR $LINENO "Database creation failed"
+  printf "Done!\n"
 
   # If an SQL file exists in /data => load it
   if [ "$(stat -t /data/*.sql >/dev/null 2>&1 && echo $?)" ]; then
