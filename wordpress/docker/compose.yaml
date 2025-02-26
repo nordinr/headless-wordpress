@@ -1,0 +1,6 @@
+---
+services:
+  image: nordinr/headless-wp:1.0.0
+  volume:
+    - ../wordpress:/var/usr/www/html
+  
